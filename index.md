@@ -1,6 +1,6 @@
 
 See the 
- * (README.md)[README.md]
+ * [README.md](README.md)
 
 Reanalysis of SRP078379
 ===
