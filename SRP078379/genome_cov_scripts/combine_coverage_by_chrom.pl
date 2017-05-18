@@ -18,6 +18,7 @@ GetOptions('b|bed:s' => \$bedfile,
 	   's|skip:s'    => \$skip_strains,
     );
 mkdir($odir) unless -d $odir;
+mkdir("$odir/tables") unless -d "$odir/tables";
 my %depths;
 open(my $fh => $strain_depth) || die "$strain_depth: $!";
 
@@ -72,8 +73,8 @@ for my $chrom (sort keys %chroms ) {
     my (undef,undef,$firstgene) = @{$geneorder[0]};
     next if ! keys %{$genecov{$firstgene}}; # genes with no coverage
     
-    open(my $ofh => ">$odir/$chrom.gene_cov.tab") || die $!;
-    open(my $normofh => ">$odir/$chrom.gene_cov_norm.tab") || die $!;
+    open(my $ofh => ">$odir/tables/$chrom.gene_cov.tab") || die $!;
+    open(my $normofh => ">$odir/tables/$chrom.gene_cov_norm.tab") || die $!;
     print $ofh join("\t", qw(GENE), @strains_final), "\n";
     print $normofh join("\t", qw(GENE), @strains_final), "\n";
     for my $genear ( @geneorder ) {
