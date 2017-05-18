@@ -1,5 +1,5 @@
-for file in plot/*.gene_cov_norm.tab
+for file in plot/tables/*.gene_cov_norm.tab
 do
 	b=$(basename $file .tab)
-	perl genome_cov_scripts/prep_for_ggplot.pl $file > plot/$b.gg.csv
+	perl genome_cov_scripts/prep_for_ggplot.pl $file > plot/tables/$b.gg.csv
 done
